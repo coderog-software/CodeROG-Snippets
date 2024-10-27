@@ -46,8 +46,8 @@
             </div>
         </div>
         <div>
-            <!-- <button onclick="toggleFullScreen()" class="small-button"><span>Fullscreen</span></button> -->
-            <!-- <button class="copy-embed-button small-button small-button" onclick="copyEmbedCode()">Copy Embed Code</button> -->
+            <button onclick="toggleFullScreen()" class="small-button"><span>Fullscreen</span></button>
+            <button class="copy-embed-button small-button small-button" onclick="copyEmbedCode()">Copy Embed Code</button>
         </div>
         <div class="bottom-bar-right">
             <a class="coderog-snippets-logo" href="{{ url('snippet/' . $snippet->uid) }}" target="_blank">
