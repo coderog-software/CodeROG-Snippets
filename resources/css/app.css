@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Set the html and body to take full width and height */
+html, body {
+    /* height: 100%; */
+    margin: 0; /* This removes the default margin */
+    padding: 0; /* This removes the default padding */
+    background: #0f111a !important
+}
+
+/* Ensure that your main container also takes full height */
+.container {
+    /* height: 100%; */
+    display: flex; /* Use flexbox if you want to center content */
+    flex-direction: column; /* Allows for vertical stacking */
+    max-width: 100% !important;
+}
+
+/* Optional: Make content inside the container take full height */
+.full-height {
+    /* flex: 1; Allows this element to grow and fill the available space */
+}
