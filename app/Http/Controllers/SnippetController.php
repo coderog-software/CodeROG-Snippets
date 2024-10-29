@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Snippet;
-use App\Models\lang;
+use App\Models\Lang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
