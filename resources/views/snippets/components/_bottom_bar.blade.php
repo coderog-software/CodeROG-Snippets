@@ -4,7 +4,7 @@
             <div class="snippet-name-div">
                 <span class="snippet-name" id="snippet-name">{{ $snippet->name }}</span>
 
-                @if( $viewMode == 'editor' && $viewMode != 'embed' )
+                @if( $viewMode == 'editor' && $viewMode != 'embed' && $isOwnedByUser )
                     <img
                         src="https://img.icons8.com/poly/50/edit.png"
                         alt="Edit"
@@ -29,16 +29,19 @@
         </div>
 
     @if(Auth::check())
-    <div>
-        <small>User ID: <span id="user_id">{{ $user ? $user->id : "" }}</span></small>
-        <small>User Name: <span id="user_name">{{ $user ? $user->email : "" }}</span></small>
-        <small>User UID: <span id="user_hash"></span></small>
-    </div>
+        @if( $viewMode == 'editor' && $viewMode != 'embed' )
+        <div style="display: none;">
+            <small>User ID: <span id="user_id">{{ $user ? $user->id : "" }}</span></small>
+            <small>User Name: <span id="user_name">{{ $user ? $user->email : "" }}</span></small>
+            <small>User UID: <span id="user_hash"></span></small>
+            <small>isOwnedByUser: <span id="isOwnedByUser">{{ $isOwnedByUser }}</span></small>
+        </div>
+        @endif
     @endif
     <div>
         <button onclick="toggleFullScreen()" class="small-button"><span>Fullscreen</span></button>
         <button class="copy-embed-button small-button" onclick="copyEmbedCode()">Copy Embed Code</button>
-        @if( $viewMode == 'editor' && $viewMode != 'embed' )
+        @if( $viewMode == 'editor' && $viewMode != 'embed' && $isOwnedByUser )
             <button class="small-button" onclick="saveEditorContent()">Save Code</button>
         @endif
     </div>

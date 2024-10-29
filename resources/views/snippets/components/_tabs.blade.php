@@ -13,7 +13,7 @@
         @endforeach
     </div>
 
-    @if( $viewMode == 'editor' && $viewMode != 'embed' )
+    @if( $viewMode == 'editor' && $viewMode != 'embed' && $isOwnedByUser )
         <button class="tab-button" onclick="addNewCodePopup()">
             <img src="https://img.icons8.com/color/50/plus--v1.png" />
         </button>

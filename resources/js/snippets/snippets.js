@@ -145,6 +145,8 @@ window.saveEditorContent = function(new_code = false) {
         return;
     }
 
+    
+
     const snippetUid = document.querySelector("#snippet_uid").textContent;
     const codeHash = document.querySelector("#code_hash").textContent;
     const langId = document.querySelector("#lang_id").textContent;
@@ -166,7 +168,26 @@ window.saveEditorContent = function(new_code = false) {
             })
             .then(response => response.json())
             .then(data => {
-                console.log('Content saved successfully:', data);
+                // console.log('Content saved successfully:', data);
+
+                Toastify({
+                    text: "Content saved successfully",
+                    duration: 3000,
+                    destination: "",
+                    newWindow: true,
+                    close: true,
+                    gravity: "bottom", // `top` or `bottom`
+                    position: "center", // `left`, `center` or `right`
+                    stopOnFocus: true, // Prevents dismissing of toast on hover
+                    style: {
+                        background: "linear-gradient(to right, #00b09b, #96c93d)",
+                    },
+                        offset: {
+                        y: 50 // vertical axis - can be a number or a string indicating unity. eg: '2em'
+                    },
+                    onClick: function(){} // Callback after click
+                }).showToast();
+
                 if (new_code === true) {
                     const buttonId = createAndAppendButton(langId, data.codeEntry.hash);
                     document.getElementById(buttonId).click();
@@ -211,6 +232,24 @@ window.saveSnippetDetails = function(event) {
     .then(response => response.json())
     .then(data => {
         if (data.success) {
+            Toastify({
+                text: "Saved successfully!",
+                duration: 3000,
+                destination: "",
+                newWindow: true,
+                close: true,
+                gravity: "bottom", // `top` or `bottom`
+                position: "center", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                    background: "linear-gradient(to right, #00b09b, #96c93d)",
+                },
+                    offset: {
+                    y: 50 // vertical axis - can be a number or a string indicating unity. eg: '2em'
+                },
+                onClick: function(){} // Callback after click
+            }).showToast();
+
             // Update the name on the page
             document.getElementById("snippet-name").innerText = newSnippetName;
             closeSnippetDetailsEditModal();
@@ -261,7 +300,24 @@ window.openCodeTab = function(btn) {
 window.copyEmbedCode = function() {
     const embedCode = `<iframe src="{{ url('embed/' . $snippet->uid) }}" width="100%" height="400px" style="border:0"></iframe>`;
     navigator.clipboard.writeText(embedCode).then(() => {
-        alert("Embed code copied to clipboard!");
+        // alert("Embed code copied to clipboard!");
+        Toastify({
+            text: "Embed code copied to clipboard!",
+            duration: 3000,
+            destination: "",
+            newWindow: true,
+            close: true,
+            gravity: "bottom", // `top` or `bottom`
+            position: "center", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+                background: "linear-gradient(to right, #00b09b, #96c93d)",
+            },
+                offset: {
+                y: 50 // vertical axis - can be a number or a string indicating unity. eg: '2em'
+            },
+            onClick: function(){} // Callback after click
+        }).showToast();
     }).catch(err => {
         console.error("Failed to copy text: ", err);
     });
@@ -289,6 +345,25 @@ window.copyCodeCode = function(button) {
 
         // Show success image
         if (successful) {
+
+            Toastify({
+                text: "Code copied to clipboard!",
+                duration: 3000,
+                destination: "",
+                newWindow: true,
+                close: true,
+                gravity: "bottom", // `top` or `bottom`
+                position: "center", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                    background: "linear-gradient(to right, #00b09b, #96c93d)",
+                },
+                    offset: {
+                    y: 50 // vertical axis - can be a number or a string indicating unity. eg: '2em'
+                },
+                onClick: function(){} // Callback after click
+            }).showToast();
+
             copyImg.style.display = 'none'; // Hide copy icon
             successImg.style.display = 'block'; // Show success icon
 

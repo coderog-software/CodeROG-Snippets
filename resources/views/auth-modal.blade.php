@@ -96,7 +96,8 @@
                 closeAuthModal(); // Close the modal on success
                 location.reload(); // Reload the page to reflect logged-in state
             } else {
-                alert(data.message);
+                console.log(data);
+                // alert(data.message);
             }
         })
         .catch(error => console.error('Error:', error));

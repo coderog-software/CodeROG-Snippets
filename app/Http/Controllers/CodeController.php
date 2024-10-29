@@ -35,6 +35,13 @@ class CodeController extends Controller
 
             $snippet = Snippet::where('uid', $request->snippet_uid)->firstOrFail(); 
 
+            $isOwnedByUser = $user && $snippet->user_id === $user->id;
+            if (!$isOwnedByUser) {
+                return response()->json([
+                    'message' => 'Unauthorized request',
+                ], 401);
+            }
+
             // Try to save the code entry
 
             // Find or create a `Code` instance based on `snippet_id` and `hash`

@@ -63,13 +63,16 @@ class SnippetController extends Controller
         // Find the snippet by its UID
         $snippet = Snippet::with('codes.lang')->where('uid', $uid)->firstOrFail();
 
+        // Check if the snippet belongs to the authenticated user
+        $isOwnedByUser = $user && $snippet->user_id === $user->id;
+
         $langs = Lang::all();
 
         switch ($snippet->type_name) {
             case 'single':
                 return view('snippets.single', compact('snippet'));
             case 'multi':
-                return view('snippets.multi', compact('snippet', 'langs', 'user', 'viewMode'));
+                return view('snippets.multi', compact('snippet', 'langs', 'user', 'viewMode', 'isOwnedByUser'));
             default:
                 abort(404); // Handle unknown snippet types
         }
