@@ -178,8 +178,8 @@ class DatabaseSeeder extends Seeder
             ['name' => 'YAML', 'ace_mode' => 'yaml', 'logo' => ''],
         ]);
 
-        // DB::table('snippet_types')->insert([
-        //     ['name' => 'multi']
-        // ]);
+        DB::table('snippet_types')->insert([
+            ['name' => 'multi']
+        ]);
     }
 }
