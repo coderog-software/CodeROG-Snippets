@@ -189,6 +189,7 @@ window.saveEditorContent = function(new_code = false) {
 
                 if (new_code === true) {
                     const buttonId = createAndAppendButton(langId, data.codeEntry.hash);
+                    document.getElementById('snippet_author').textContent = document.querySelector("#user_name").textContent;
                     document.getElementById(buttonId).click();
                 }
             })

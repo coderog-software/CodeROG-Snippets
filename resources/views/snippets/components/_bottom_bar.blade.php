@@ -14,9 +14,11 @@
                 @endif
 
             </div>
-            @if($snippet->user)
-            <span class="snippet-author">{{ $snippet->user->name }}</span>
-            @endif
+            <span class="snippet-author" id="snippet_author">
+                @if($snippet->user)
+                    {{ $snippet->user->name }}
+                @endif
+            </span>
         </div>
     </div>
 
@@ -32,7 +34,8 @@
         @if( $viewMode == 'editor' && $viewMode != 'embed' )
         <div style="display: none;">
             <small>User ID: <span id="user_id">{{ $user ? $user->id : "" }}</span></small>
-            <small>User Name: <span id="user_name">{{ $user ? $user->email : "" }}</span></small>
+            <small>User Email: <span id="user_email">{{ $user ? $user->email : "" }}</span></small>
+            <small>User Name: <span id="user_name">{{ $user ? $user->name : "" }}</span></small>
             <small>User UID: <span id="user_hash"></span></small>
             <small>isOwnedByUser: <span id="isOwnedByUser">{{ $isOwnedByUser }}</span></small>
         </div>
