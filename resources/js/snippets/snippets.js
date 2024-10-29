@@ -145,8 +145,6 @@ window.saveEditorContent = function(new_code = false) {
         return;
     }
 
-    
-
     const snippetUid = document.querySelector("#snippet_uid").textContent;
     const codeHash = document.querySelector("#code_hash").textContent;
     const langId = document.querySelector("#lang_id").textContent;
@@ -163,7 +161,8 @@ window.saveEditorContent = function(new_code = false) {
                     snippet_uid: snippetUid,
                     hash: codeHash,
                     code: codeContent,
-                    lang_id: langId
+                    lang_id: langId,
+                    new_code: new_code
                 })
             })
             .then(response => response.json())

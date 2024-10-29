@@ -27,7 +27,8 @@ class CodeController extends Controller
                 'snippet_uid' => 'required|string|exists:snippets,uid',
                 'hash' => 'nullable|string',
                 'lang_id' => 'required|integer|exists:langs,id',
-                'code' => 'required|string'
+                'code' => 'required|string',
+                'new_code' => 'nullable|boolean',
             ]);
 
             // Generate a unique hash if not provided
@@ -35,12 +36,15 @@ class CodeController extends Controller
 
             $snippet = Snippet::where('uid', $request->snippet_uid)->firstOrFail(); 
 
-            $isOwnedByUser = $user && $snippet->user_id === $user->id;
-            if (!$isOwnedByUser) {
-                return response()->json([
-                    'message' => 'Unauthorized request',
-                ], 401);
+            if (!$request->new_code) {
+                $isOwnedByUser = $user && $snippet->user_id === $user->id;
+                if (!$isOwnedByUser) {
+                    return response()->json([
+                        'message' => 'Unauthorized request',
+                    ], 401);
+                }
             }
+            
 
             // Try to save the code entry
 
