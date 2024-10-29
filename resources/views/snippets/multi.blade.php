@@ -9,7 +9,7 @@
 
 <div class="coderog-snippets-container">
 
-    @if( $viewMode == 'editor' && $viewMode != 'embed' && $isOwnedByUser )
+    @if($viewMode == 'editor' && $viewMode != 'embed' && ($isOwnedByUser || empty($snippet->user_id)))
         @include('snippets.components._new_code_popup')
     @endif
 

@@ -12,8 +12,8 @@
         </button>
         @endforeach
     </div>
-
-    @if( $viewMode == 'editor' && $viewMode != 'embed' && $isOwnedByUser )
+    
+    @if($viewMode == 'editor' && $viewMode != 'embed' && ($isOwnedByUser || empty($snippet->user_id)))
         <button class="tab-button" onclick="addNewCodePopup()">
             <img src="https://img.icons8.com/color/50/plus--v1.png" />
         </button>
