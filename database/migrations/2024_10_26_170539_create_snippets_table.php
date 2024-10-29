@@ -10,8 +10,9 @@ class CreateSnippetsTable extends Migration
     {
         Schema::create('snippets', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('snippet_type_id')->constrained('snippet_types')->onDelete('cascade'); // Foreign key for snippet types
-            $table->string('uid', 8)->unique();
+            $table->foreignId('snippet_type_id')->constrained('snippet_types')->onDelete('cascade');
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
+            $table->string('uid', 15)->unique();
             $table->string('name'); 
             $table->timestamps();
         });

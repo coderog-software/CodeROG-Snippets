@@ -12,6 +12,7 @@ class CreateLangsTable extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->string('logo')->nullable();
+            $table->string('ace_mode')->nullable();
             $table->timestamps();
         });
     }

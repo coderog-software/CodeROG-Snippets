@@ -1,0 +1,322 @@
+.ace_content {
+    background: #0f111a;
+}
+
+#tab-lang-buttons {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+}
+
+#tab-lang-buttons::-webkit-scrollbar {
+    height: 8px;
+}
+
+#tab-lang-buttons::-webkit-scrollbar-thumb {
+    background-color: #aaa;
+    border-radius: 4px;
+}
+
+.tab-button {
+    flex-shrink: 0;
+    margin-right: 10px;
+}
+
+#tab-lang-buttons {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    cursor: grab;
+    user-select: none; /* Prevents text selection */
+}
+
+#tab-lang-buttons:active {
+    cursor: grabbing;
+}
+
+#tab-lang-buttons img {
+    pointer-events: none; /* Prevents image drag */
+}
+
+#tab-lang-buttons {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    cursor: grab;
+    user-select: none;
+}
+
+/* Scrollbar Styling */
+#tab-lang-buttons::-webkit-scrollbar {
+    height: 4px; /* Reduces scrollbar height */
+}
+
+#tab-lang-buttons::-webkit-scrollbar-thumb {
+    background-color: #333; /* Dark color for the scrollbar thumb */
+    border-radius: 4px; /* Rounded edges */
+}
+
+#tab-lang-buttons::-webkit-scrollbar-track {
+    background: #1a1a1a; /* Dark background for the scrollbar track */
+}
+
+/* Optional - Active scroll style for thumb */
+#tab-lang-buttons:active {
+    cursor: grabbing;
+}
+
+/* ========================================================= */
+
+/* Popup overlay to blur background */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000000;
+    backdrop-filter: blur(5px);
+}
+
+/* Popup content styling */
+.popup-content {
+    background: #000000;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    text-align: center;
+    animation: slideDown 0.4s ease-in-out;
+    color: white;
+    box-shadow: #0e172094 0px 0px 15px;
+}
+
+/* Entry animation */
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.new-code-lang-select {
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    color: white;
+    font-size: x-small;
+    opacity: 0.5;
+    font-weight: 400;
+    justify-items: center;
+}
+
+.new-code-lang-select:hover {
+    opacity: 1;
+}
+
+/* ========================================================= */
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    /* Remove default margin */
+}
+
+.coderog-snippets-container {
+    padding-bottom: 40px;
+    font-family: Code-Pro-JetBrains-Mono, ui-monospace, SFMono-Regular, Menlo,
+        Monaco, Consolas, monospace;
+}
+
+.tabs {
+    display: flex;
+    background: #07080d;
+    position: fixed;
+    top: 0;
+    z-index: 100000;
+    width: 100%;
+}
+
+.tab-button {
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    color: white;
+    font-size: x-small;
+    opacity: 0.5;
+    font-weight: 400;
+    justify-items: center;
+}
+
+.tab-button.active {
+    background-color: #0f111a;
+    /* font-weight: bold; */
+    opacity: 1;
+}
+
+.tab-button:hover {
+    opacity: 1;
+}
+
+.tab-button img {
+    width: 40px;
+    margin-bottom: 5px;
+}
+
+.tab-contents {
+    padding-top: 76px;
+}
+
+.tab-content {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    /* Animation for fading */
+    font-size: 14px !important;
+}
+
+.tab-content.active {
+    display: block;
+    opacity: 1;
+}
+
+.code-section {
+    border: 1px solid #ddd;
+}
+
+.hljs {
+    background: #0f111a !important;
+    padding: 16px 0 16px 16px !important;
+}
+
+.copy-code-button {
+    opacity: 0.5;
+    right: 16px;
+    position: fixed;
+    z-index: 1;
+}
+
+.copy-code-button:hover {
+    opacity: 1;
+}
+
+/* ========================================================= */
+
+/* Bottom bar styling */
+.bottom-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 14px;
+    background-color: #07080d;
+    color: #ffffff;
+    border-top: 1px solid #333;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 1000;
+}
+
+.bottom-bar-left {
+    display: flex;
+    align-items: center;
+}
+
+.snippet-details {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+}
+
+.snippet-name {
+    font-weight: bold;
+    margin-right: 16px;
+}
+
+.snippet-name-div {
+    display: flex;
+}
+
+.snippet-name-div img {
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+}
+
+.snippet-author {
+    font-size: x-small;
+}
+
+.copy-embed-button {
+    padding: 4px 8px;
+    background-color: #1aab29;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: x-small;
+}
+
+.copy-embed-button:hover {
+    background-color: #27c93f;
+}
+
+.bottom-bar-right .coderog-logo {
+    height: 20px;
+    /* Adjust size as necessary */
+}
+
+.coderog-snippets-logo {
+    opacity: 0.9;
+}
+
+.coderog-snippets-logo:hover {
+    opacity: 1;
+}
+
+.small-button {
+    padding: 4px 8px;
+    background-color: #1aab29;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: x-small;
+}
+
+.small-button:hover {
+    background-color: #27c93f;
+}
+
+/* ========================================================= */
+
+#lang_name_floating {
+    font-family: Code-Pro-JetBrains-Mono, ui-monospace, SFMono-Regular, Menlo,
+        Monaco, Consolas, monospace;
+    display: flex;
+    align-items: flex-end;
+    padding: 10px;
+    width: 100%;
+    justify-content: flex-end;
+    color: #aaafcf;
+    font-size: 12px;
+    line-height: 1;
+    position: fixed;
+    right: 16px;
+    bottom: 46px;
+    z-index: 1;
+}

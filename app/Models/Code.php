@@ -9,7 +9,7 @@ class Code extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['snippet_id', 'lang_id', 'code'];
+    protected $fillable = ['snippet_id', 'lang_id', 'code', 'hash'];
 
     public function snippet()
     {

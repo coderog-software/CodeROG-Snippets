@@ -10,6 +10,7 @@ class CreateCodesTable extends Migration
     {
         Schema::create('codes', function (Blueprint $table) {
             $table->id();
+            $table->string('hash', 20)->unique();
             $table->foreignId('snippet_id')->constrained()->onDelete('cascade');
             $table->foreignId('lang_id')->constrained('langs')->onDelete('cascade');
             $table->longText('code');

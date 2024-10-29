@@ -9,7 +9,9 @@ class Lang extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'logo'];
+    protected $fillable = ['name', 'logo', 'ace_mode'];
+
+    protected $hidden = ['created_at', 'updated_at'];
 
     public function codes()
     {

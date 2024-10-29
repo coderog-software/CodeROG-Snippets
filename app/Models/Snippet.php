@@ -9,7 +9,7 @@ class Snippet extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['snippet_type_id', 'uid', 'name'];
+    protected $fillable = ['snippet_type_id', 'uid', 'name', 'user_id'];
 
     public function type()
     {
@@ -25,6 +25,11 @@ class Snippet extends Model
     public function getTypeNameAttribute()
     {
         return $this->type ? $this->type->name : null; // Return the name or null if no type exists
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 
 }
