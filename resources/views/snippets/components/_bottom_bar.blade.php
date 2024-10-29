@@ -41,9 +41,10 @@
     <div>
         <button onclick="toggleFullScreen()" class="small-button"><span>Fullscreen</span></button>
         <button class="copy-embed-button small-button" onclick="copyEmbedCode()">Copy Embed Code</button>
-        @if( $viewMode == 'editor' && $viewMode != 'embed' && $isOwnedByUser )
+        @if($viewMode == 'editor' && $viewMode != 'embed' && ($isOwnedByUser || empty($snippet->user_id)))
             <button class="small-button" onclick="saveEditorContent()">Save Code</button>
         @endif
+        
     </div>
     <div class="bottom-bar-right">
         <a class="coderog-snippets-logo" href="{{ url('snippet/' . $snippet->uid) }}" target="_blank">
